@@ -304,7 +304,7 @@
     color: var(--ink-soft);
     margin: 0 0 0.75rem;
   }
-  .result-links { display: flex; gap: 0.9rem; align-items: center; }
+  .result-links { display: flex; flex-wrap: wrap; gap: 0.5rem 1.1rem; align-items: center; }
   .result-links a {
     font-size: 13px;
     font-weight: 500;
@@ -629,7 +629,7 @@ const PROGRAMS = [
     scale: "소부장: 최대 5천/7천/1억원 · 그린·소비재·서비스: 최대 3천/5천/5,500만원",
     note: "단계별 매출기준 적용 · 국고보조율: 중소 70%, 중견 50%",
     periods: [["2025-12-22","2026-01-09"]],
-    link: "https://www.exportvoucher.com", contact: "",
+    link: "https://www.exportvoucher.com", bizinfo: "https://www.bizinfo.go.kr/sii/siia/selectSIIA200Detail.do?pblancId=PBLN_000000000116978", contact: "",
     region: "ALL", companySizes: ["중소기업","중견기업"], industries: ["소부장","그린소비재서비스"],
     exportMax: null, certRequirement: "planned", benefitBlock: false
   },
@@ -639,7 +639,7 @@ const PROGRAMS = [
     scale: "내수·초보: 3천만원 / 유망: 4,500만원 / 성장: 7천만원 / 강소: 1억원",
     note: "수출액 기준 단계 구분 · 국고보조율 50~70%",
     periods: [["2025-12-17","2026-01-09"],["2026-04-17","2026-05-06"],["2026-07-08","2026-07-22"]],
-    link: "https://www.exportvoucher.com", contact: "",
+    link: "https://www.exportvoucher.com", bizinfo: "https://www.bizinfo.go.kr/web/lay1/bbs/S1T122C128/AS/74/view.do?pblancId=PBLN_000000000116976", contact: "",
     region: "ALL", companySizes: ["소기업","중소기업"], industries: null,
     exportMax: null, certRequirement: "planned", benefitBlock: false
   },
@@ -649,7 +649,7 @@ const PROGRAMS = [
     scale: "기업별 최대 5천만원 (인증·연구장비활용시험 최대 1,500만원)",
     note: "정부지원율 40~85% · 지역별 5~15%p 우대 가능",
     periods: [["2025-11-12","2025-12-02"],["2026-02-27","2026-03-13"]],
-    link: "https://www.mssmiv.com", contact: "",
+    link: "https://www.mssmiv.com", bizinfo: "https://www.bizinfo.go.kr/sii/siia/selectSIIA200Detail.do?pblancId=PBLN_000000000116305", contact: "",
     region: "ALL", companySizes: ["소기업","중소기업"], industries: null,
     exportMax: null, certRequirement: "planned", benefitBlock: false
   },
@@ -659,7 +659,7 @@ const PROGRAMS = [
     scale: "최대 4건·1억원 (지정 의료기기 인증 최대 1.5억원)",
     note: "지원율 50~70% · 일정요건 충족 시 4건 초과 가능",
     periods: [["2026-01-30","2026-03-06"],["2026-07-15","2026-08-14"]],
-    link: "https://www.smes.go.kr/globalcerti", contact: "1522-0141",
+    link: "https://www.smes.go.kr/globalcerti", bizinfo: "https://www.bizinfo.go.kr/sii/siia/selectSIIA200Detail.do?pblancId=PBLN_000000000118089", contact: "1522-0141",
     region: "ALL", companySizes: ["소기업","중소기업","중견기업"], industries: null,
     exportMax: 5000, certRequirement: "planned", benefitBlock: false
   },
@@ -669,7 +669,7 @@ const PROGRAMS = [
     scale: "최대 4건·1억원",
     note: "지원율 50~70% · 고비용 전략인증은 일반지원으로 신청",
     periods: [["2026-01-30","2026-11-30"]],
-    link: "https://www.smes.go.kr/globalcerti", contact: "1522-0141",
+    link: "https://www.smes.go.kr/globalcerti", bizinfo: "https://www.bizinfo.go.kr/sii/siia/selectSIIA200Detail.do?pblancId=PBLN_000000000118090", contact: "1522-0141",
     region: "ALL", companySizes: ["소기업","중소기업","중견기업"], industries: null,
     exportMax: 5000, certRequirement: "planned", benefitBlock: false
   },
@@ -679,7 +679,7 @@ const PROGRAMS = [
     scale: "최대 500만원 (소요비용의 80%)",
     note: "대상 인증: FCC·FDA·CE·PSE·IECEE-CB Test · 5개사 선정",
     periods: [["2026-05-04","2026-05-27"]],
-    link: "", contact: "",
+    link: "https://www.k-safety.or.kr/bznsc/pblanclist.do", bizinfo: "", contact: "",
     region: "ALL", companySizes: ["중소기업","중견기업"], industries: ["재난안전"],
     exportMax: null, certRequirement: "planned", benefitBlock: false
   },
@@ -690,7 +690,7 @@ const PROGRAMS = [
     note: "2026년 11개 공고 단위로 지역별 운영, 세부 일정은 지역 공고 확인 필요",
     periods: [],
     unclearPeriod: true,
-    link: "", contact: "",
+    link: "", bizinfo: "https://www.bizinfo.go.kr/sii/siia/selectSIIA200Detail.do?pblancId=PBLN_000000000125311", contact: "",
     region: "ALL", companySizes: ["소기업","중소기업"], industries: null,
     exportMax: null, certRequirement: null, benefitBlock: false
   },
@@ -700,7 +700,7 @@ const PROGRAMS = [
     scale: "최대 1,400만원 (소요비용의 80%, 최대 3건)",
     note: "인증획득 후 사후지원 · 최근 2년 동일사업 미수혜 필요",
     periods: [["2026-03-09","2026-03-16"],["2026-04-11","2026-06-23"],["2026-08-03","2026-08-31"]],
-    link: "", contact: "",
+    link: "https://www.djba.or.kr/biz/project/list.do", bizinfo: "", contact: "",
     region: "대전", companySizes: ["소기업","중소기업"], industries: null,
     exportMax: null, certRequirement: "completed", benefitBlock: true
   },
@@ -711,7 +711,7 @@ const PROGRAMS = [
     note: "매출 100억원 미만 · 최근 2년 동일사업 미수혜 필요 · 부가가치세 기업 부담",
     periods: [["2026-01-19","2026-12-31"]],
     ongoingUntilBudget: true,
-    link: "", contact: "",
+    link: "", bizinfo: "https://bizinfo.go.kr/sii/siia/selectSIIA200Detail.do?pblancId=PBLN_000000000117688", contact: "",
     region: "인천", companySizes: ["소기업","중소기업"], industries: null,
     exportMax: null, certRequirement: "completed", benefitBlock: true
   },
@@ -722,7 +722,7 @@ const PROGRAMS = [
     note: "지원대상 인증 567개 · 사후지원 · 3차는 2026년 10월 예정(정확한 일정 미정)",
     periods: [["2026-03-04","2026-05-31"],["2026-07-02","2026-08-31"]],
     unclearNextRound: "2026년 10월 3차 예정",
-    link: "", contact: "",
+    link: "", bizinfo: "https://bizinfo.go.kr/sii/siia/selectSIIA200Detail.do?pblancId=PBLN_000000000119166", contact: "",
     region: "경남", companySizes: ["소기업","중소기업"], industries: null,
     exportMax: null, certRequirement: "completed", benefitBlock: false
   },
@@ -733,7 +733,7 @@ const PROGRAMS = [
     note: "약 10개사 선정 · 사후지원 · 2026.1.1. 이후 취득 건만 해당",
     periods: [["2026-02-02","2026-12-31"]],
     ongoingUntilBudget: true,
-    link: "", contact: "",
+    link: "", bizinfo: "https://www.bizinfo.go.kr/sii/siia/selectSIIA200Detail.do?pblancId=PBLN_000000000118245", contact: "",
     region: "경북", companySizes: ["소기업","중소기업"], industries: null,
     exportMax: null, certRequirement: "completed", benefitBlock: false
   },
@@ -744,7 +744,7 @@ const PROGRAMS = [
     note: "기업당 연 1회 · 사후지원 · 공장등록 등 시설요건 충족 필요",
     periods: [["2026-02-23","2026-12-31"]],
     ongoingUntilBudget: true,
-    link: "", contact: "",
+    link: "", bizinfo: "https://bizinfo.go.kr/sii/siia/selectSIIA200Detail.do?pblancId=PBLN_000000000118750", contact: "",
     region: "진주시", companySizes: ["소기업","중소기업"], industries: null,
     exportMax: null, certRequirement: "completed", benefitBlock: false
   },
@@ -754,7 +754,7 @@ const PROGRAMS = [
     scale: "기업당 최대 500만원 (최대 1개 제품·2개 프로그램)",
     note: "3자 협약 · 부가가치세 기업 부담",
     periods: [["2026-06-29","2026-07-16"]],
-    link: "", contact: "",
+    link: "https://www.ctp.or.kr/kr/sub04/sub04_0401.do", bizinfo: "", contact: "",
     region: "충남", companySizes: ["소기업","중소기업"], industries: ["소부장"],
     exportMax: null, certRequirement: "planned", benefitBlock: false
   },
@@ -764,7 +764,7 @@ const PROGRAMS = [
     scale: "최대 1,200만원 (기업부담금 10% 이상)",
     note: "신뢰성·성능·규격·표준화 분야 · 사후정산 · 2024~2026년 기술이전 완료 또는 예정 기업",
     periods: [["2026-05-26","2026-06-08"]],
-    link: "", contact: "",
+    link: "", bizinfo: "https://www.bizinfo.go.kr/sii/siia/selectSIIA200Detail.do?pblancId=PBLN_000000000122439", contact: "",
     region: "울산", companySizes: ["소기업","중소기업"], industries: ["기술이전"],
     exportMax: null, certRequirement: null, benefitBlock: false
   },
@@ -774,7 +774,7 @@ const PROGRAMS = [
     scale: "실소요비용의 70% (기업당 최대 1,000만원, 인증건수 제한 없음)",
     note: "신규·갱신·사후관리 지원 (갱신·사후관리 컨설팅비는 제외)",
     periods: [["2026-02-10","2026-02-26"]],
-    link: "", contact: "",
+    link: "", bizinfo: "https://www.bizinfo.go.kr/sii/siia/selectSIIA200Detail.do?pblancId=PBLN_000000000118410", contact: "",
     region: "경기", companySizes: ["소기업","중소기업"], industries: null,
     exportMax: null, certRequirement: "planned", benefitBlock: false
   },
@@ -784,7 +784,7 @@ const PROGRAMS = [
     scale: "인증·시험·컨설팅비의 70% (기업당 최대 500만원, 1개사 1품목·1인증)",
     note: "시험비 최대 300만원 · 컨설팅비 최대 100만원",
     periods: [["2026-03-26","2026-04-10"],["2026-04-28","2026-05-21"]],
-    link: "", contact: "",
+    link: "https://www.seongnam.go.kr/city/1000055/30006/bbsList.do", bizinfo: "", contact: "",
     region: "성남", companySizes: ["소기업","중소기업"], industries: null,
     exportMax: 1000, certRequirement: "completed", benefitBlock: false
   },
@@ -795,7 +795,7 @@ const PROGRAMS = [
     note: "인증·심사 자부담 10% · 컨설팅비 최대 200만원 · 최근 5년 내 3회 이상 수혜 시 제외 · 사후지원",
     periods: [["2026-01-24","2026-12-31"]],
     ongoingUntilBudget: true,
-    link: "", contact: "",
+    link: "https://www.jbexport.or.kr/other/spWork/spWorkSupportBusiness/detail1.do?menuUUID=402880867c8174de017c819251e70009&spSeq=dd9b7e10dcdf49fd8888ed6bea32ccc7", bizinfo: "", contact: "",
     region: "전북", companySizes: ["소기업","중소기업"], industries: null,
     exportMax: null, certRequirement: "completed", benefitBlock: false
   },
@@ -806,7 +806,7 @@ const PROGRAMS = [
     note: "업체별 인증비용 1건 · 선착순 접수",
     periods: [["2026-07-01","2026-12-31"]],
     ongoingUntilBudget: true,
-    link: "", contact: "",
+    link: "", bizinfo: "https://www.bizinfo.go.kr/sii/siia/selectSIIA200Detail.do?pblancId=PBLN_000000000123923", contact: "",
     region: "김해", companySizes: ["소기업","중소기업"], industries: null,
     exportMax: null, certRequirement: null, benefitBlock: false
   }
@@ -917,7 +917,9 @@ function render() {
         <p class="result-scale">${p.scale}</p>
         <p class="result-note">${p.note}</p>
         <div class="result-links">
-          ${p.link ? `<a href="${p.link}" target="_blank" rel="noopener">기관 홈페이지 바로가기</a>` : `<span class="no-link">홈페이지 링크 준비 중</span>`}
+          ${p.link ? `<a href="${p.link}" target="_blank" rel="noopener noreferrer">기관 홈페이지</a>` : ``}
+          ${p.bizinfo ? `<a href="${p.bizinfo}" target="_blank" rel="noopener noreferrer">기업마당 공고</a>` : ``}
+          ${(!p.link && !p.bizinfo) ? `<span class="no-link">홈페이지 링크 준비 중</span>` : ``}
           ${p.contact ? `<span class="no-link">문의: ${p.contact}</span>` : ``}
         </div>
       `;
