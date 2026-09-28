@@ -313,6 +313,13 @@
     border-bottom: 1px solid var(--accent);
   }
   .result-links a:hover { border-bottom-color: var(--accent); }
+  .search-hint { margin-top: 0.85rem; padding: 0.7rem 0.9rem 0.75rem; background: var(--muted-bg); border-radius: 3px; }
+  .search-hint-label { display: inline-block; font-size: 12px; font-weight: 600; color: var(--ink-soft); margin-right: 0.6rem; }
+  .kw { font-family: inherit; font-size: 13px; color: var(--ink); background: var(--panel); border: 1px solid var(--line-strong); border-radius: 999px; padding: 0.3rem 0.55rem 0.3rem 0.85rem; margin: 0.15rem 0.4rem 0.15rem 0; cursor: pointer; }
+  .kw:hover { border-color: var(--accent); }
+  .kw:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+  .kw .kw-act { margin-left: 0.55rem; font-size: 11px; font-weight: 600; color: var(--accent-ink); }
+  .search-hint-note { margin: 0.4rem 0 0; font-size: 12px; color: var(--ink-soft); }
   .result-links .no-link {
     font-size: 12px;
     color: var(--ink-soft);
@@ -690,7 +697,7 @@ const PROGRAMS = [
     note: "2026년 11개 공고 단위로 지역별 운영, 세부 일정은 지역 공고 확인 필요",
     periods: [],
     unclearPeriod: true,
-    link: "", bizinfo: "https://www.bizinfo.go.kr/sii/siia/selectSIIA200Detail.do?pblancId=PBLN_000000000125311", contact: "",
+    link: "", bizinfo: "https://www.bizinfo.go.kr/sii/siia/selectSIIA200View.do", searchHints: ["Stand-up 맞춤지원", "밀집지역 위기대응"], contact: "",
     region: "ALL", companySizes: ["소기업","중소기업"], industries: null,
     exportMax: null, certRequirement: null, benefitBlock: false
   },
@@ -918,10 +925,15 @@ function render() {
         <p class="result-note">${p.note}</p>
         <div class="result-links">
           ${p.link ? `<a href="${p.link}" target="_blank" rel="noopener noreferrer">기관 홈페이지</a>` : ``}
-          ${p.bizinfo ? `<a href="${p.bizinfo}" target="_blank" rel="noopener noreferrer">기업마당 공고</a>` : ``}
+          ${p.bizinfo ? `<a href="${p.bizinfo}" target="_blank" rel="noopener noreferrer">${p.searchHints ? "기업마당 공고 목록" : "기업마당 공고"}</a>` : ``}
           ${(!p.link && !p.bizinfo) ? `<span class="no-link">홈페이지 링크 준비 중</span>` : ``}
           ${p.contact ? `<span class="no-link">문의: ${p.contact}</span>` : ``}
         </div>
+        ${p.searchHints ? `<div class="search-hint">
+          <span class="search-hint-label">기업마당 검색어 추천</span>
+          ${p.searchHints.map(k => `<button type="button" class="kw" data-kw="${k}">${k}<span class="kw-act">복사</span></button>`).join("")}
+          <p class="search-hint-note">위 링크에서 검색창에 입력한 뒤, 소재지 지역의 공고를 확인하세요.</p>
+        </div>` : ``}
       `;
       resultList.appendChild(card);
     });
@@ -934,6 +946,25 @@ function render() {
 }
 
 document.getElementById("submitBtn").addEventListener("click", render);
+document.getElementById("resultList").addEventListener("click", function (e) {
+  const btn = e.target.closest(".kw");
+  if (!btn) return;
+  const kw = btn.getAttribute("data-kw");
+  const act = btn.querySelector(".kw-act");
+  const show = (t) => { act.textContent = t; setTimeout(() => { act.textContent = "복사"; }, 1500); };
+  const fallback = () => {
+    const ta = document.createElement("textarea");
+    ta.value = kw; ta.style.position = "fixed"; ta.style.opacity = "0";
+    document.body.appendChild(ta); ta.select();
+    let ok = false;
+    try { ok = document.execCommand("copy"); } catch (err) {}
+    document.body.removeChild(ta);
+    show(ok ? "복사됨" : "직접 입력");
+  };
+  if (navigator.clipboard && navigator.clipboard.writeText) {
+    navigator.clipboard.writeText(kw).then(() => show("복사됨"), fallback);
+  } else { fallback(); }
+});
 document.getElementById("regionGroup").addEventListener("change", function () {
   if (document.querySelector('input[name="region"]:checked')) {
     document.getElementById("regionError").classList.add("hidden");
